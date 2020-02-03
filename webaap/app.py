@@ -16,7 +16,6 @@ with open('webapp/model/model_columns.pkl', 'rb') as f:
 @app.route('/')
 def main():
     return flask.render_template('predict.html')
-
     # return "Boston Housing Price Prediction"
 
 @app.route('/predict', methods=['POST','GET'])
@@ -52,24 +51,6 @@ def predict():
                                      result=prediction
                                      )
             
-            
-                                       
-    
-    
-            # json_ = request.json
-            # print(json_)
-            # query_ = pd.get_dummies(pd.DataFrame(json_))
-            # query = query_.reindex(columns = model_columns, fill_value= 0)
-            # prediction = list(classifier.predict(query))
-            
-            # return jsonify({
-            #     "prediction":str(prediction),
-            # })
-
-            
-
-
-
         except:
             return jsonify({
                 "trace": traceback.format_exc()
