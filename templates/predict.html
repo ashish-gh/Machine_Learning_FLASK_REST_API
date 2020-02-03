@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <style>
+        form {
+    margin: auto;
+    width: 35%;
+}
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+    </style>
+<head>
+<title>Boston House Prediction</title>
+</head>
+<h1>Boston Housing Price Prediction</h1>
+<form action="{{ url_for('predict') }}" method="POST">
+    <fieldset>
+        <!-- <legend>Please fill in all the values  :</legend> -->
+        CRIM:
+        <input name="CRIM" type="number" required>
+        <br>
+        <br> ZN:
+        <input name="ZN" type="number" required>
+        <br>
+        <br> INDUS:
+        <input name="INDUS" type="number" required>
+        <br>
+        <br> CHAS:
+        <input name="CHAS" type="number" required>
+        <br>
+        <br> NOX:
+        <input name="NOX" type="number" required><br>
+        <br> RM:
+        <input name="RM" type="number" required><br>
+        <br> AGE:
+        <input name="AGE" type="number" required><br>
+        <br> DIS: 
+        <input name="DIS" type="number" required><br>
+        <br> RAD:
+        <input name="RAD" type="number" required><br>
+        <br> TAX:
+        <input name="TAX" type="number" required><br>
+        <br> PTRATIO:
+            <input name="PTRATIO" type="number" required>
+        <br> B:
+        <input name="B" type="number" required>
+        <br> LSTAT:
+        <input name="LSTAT" type="number" required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+<br>
+<div class="result" align="center">
+    {% if result %}
+          <br>
+        <br> Price of housing::
+           <p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
+</html>
